@@ -40,7 +40,6 @@ else
     app.UseHsts();
 }
 
-app.UseGlobalExceptionHandlingMiddleware();
 app.UseDebugIpAddressMiddleware();
 
 app.UseHttpsRedirection();

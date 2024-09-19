@@ -8,10 +8,5 @@ namespace Lamazon.Web.Extensions
         {
             return builder.UseMiddleware<DebugIpAddressMiddleware>();
         }
-
-        public static IApplicationBuilder UseGlobalExceptionHandlingMiddleware(this IApplicationBuilder builder)
-        {
-            return builder.UseMiddleware<GlobalExceptionHandlingMiddleware>();
-        }
     }
 }
