@@ -1,0 +1,50 @@
+﻿@model UserViewModel
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(x => x.Id)
+    @Html.HiddenFor(x => x.Email)
+    @Html.HiddenFor(x => x.FullName)
+
+    <div class="card">
+        <div class="card-header">
+            <p>Edit</p>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                        <label asp-for="FullName" class="bmd-label-floating"></label>
+                        <input asp-for="FullName" class="form-control" disabled />
+                        <span asp-validation-for="FullName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group">
+                        <label asp-for="Email" class="bmd-label-floating"></label>
+                        <input asp-for="Email" class="form-control" disabled />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group bmd-form-group is-filled">
+                        <label asp-for="Role" class="bmd-label-floating"></label>
+                        <select asp-for="RoleKey" asp-items="@ViewBag.RoleKey" class="form-control ddl-search"></select>
+                        <span asp-validation-for="RoleKey" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-footer float-right">
+            <div class="mt-5">
+                <a class="btn btn-default" asp-controller="Users" asp-action="Index">Cancel</a>
+                <button class="ms-2 btn btn-success" type="submit">Save</button>
+            </div>
+        </div>
+    </div>   
+}
