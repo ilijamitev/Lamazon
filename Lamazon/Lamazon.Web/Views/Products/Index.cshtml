@@ -8,6 +8,6 @@
 <div class="row">
     @foreach (var product in Model)
     {
-        @Html.PartialAsync("_ProductItem", product).GetAwaiter().GetResult()
+        @(await Html.PartialAsync("_ProductItem", product))
     }
 </div>

@@ -1,9 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Lamazon.Domain.Enitities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Lamazon.Domain.Enitities;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Lamazon.DataAccess.EntitiesConfig
 {

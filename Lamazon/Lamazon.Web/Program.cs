@@ -5,8 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container
-var configuration = builder.Configuration;
-string connectionString = configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
+string connectionString = builder.Configuration.GetValue<string>("ConnectionStrings:DefaultConnection");
 
 builder.Services.AddControllersWithViews();
 

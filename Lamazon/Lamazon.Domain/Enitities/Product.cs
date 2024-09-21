@@ -1,10 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Lamazon.Domain.Enitities
+﻿namespace Lamazon.Domain.Enitities
 {
-    public class Product
+    public class Product : BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
         public string ImageUrl { get; set; }
@@ -16,7 +13,6 @@ namespace Lamazon.Domain.Enitities
 
         public virtual ProductCategory ProductCategory { get; set; }
         public virtual ProductStatus ProductStatus { get; set; }
-
         public virtual ICollection<InvoiceLineItem> InvoiceLineItems { get; set; }
         public virtual ICollection<OrderLineItem> OrderLineItems { get; set; }
     }

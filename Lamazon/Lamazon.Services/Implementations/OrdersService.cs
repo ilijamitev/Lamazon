@@ -1,14 +1,8 @@
 ﻿using AutoMapper;
 using Lamazon.DataAccess.Interfaces;
 using Lamazon.Domain.Enitities;
-using Lamazon.Services;
 using Lamazon.Services.Interfaces;
 using Lamazon.ViewModels.Models;
-using Lamazon.Domain.Enums;
-using Lamazon.ViewModels.Enums;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Transactions;
 
 namespace Lamazon.Services.Implementations
@@ -38,8 +32,7 @@ namespace Lamazon.Services.Implementations
 
                     var invoice = _mapper.Map<Invoice>(order);
                     var maxId = await _invoicesRepository.GetMaxId();
-                    maxId++;
-                    invoice.InvoiceNumber = $"{maxId}/{DateTime.Now.Year}";
+                    invoice.InvoiceNumber = $"{++maxId}/{DateTime.Now.Year}";
                     await _invoicesRepository.Insert(invoice);
 
                     scope.Complete();
@@ -57,8 +50,7 @@ namespace Lamazon.Services.Implementations
             orderViewModel.OrderDate = DateTime.Today;
             orderViewModel.OrderStatus = ViewModels.Enums.OrderStatusEnum.Pending;
             var maxId = await _ordersRepository.GetMaxId();
-            maxId++;
-            orderViewModel.OrderNumber = $"{maxId}/{DateTime.Now.Year}";
+            orderViewModel.OrderNumber = $"{++maxId}/{DateTime.Now.Year}";
 
             var order = _mapper.Map<Order>(orderViewModel);
             int orderId = await _ordersRepository.Insert(order);

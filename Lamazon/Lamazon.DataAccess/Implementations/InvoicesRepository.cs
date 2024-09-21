@@ -1,14 +1,9 @@
-﻿using Lamazon.DataAccess;
-using Lamazon.DataAccess.DataContext;
+﻿using Lamazon.DataAccess.DataContext;
 using Lamazon.DataAccess.Extensions;
 using Lamazon.DataAccess.Interfaces;
 using Lamazon.Domain.Enitities;
 using Lamazon.Domain.Models;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Lamazon.DataAccess.Implementations
 {

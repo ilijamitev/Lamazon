@@ -12,13 +12,14 @@ namespace Lamazon.Web.Helpers
     {
         public static async Task SignInUser(UserViewModel userViewModel, HttpContext httpContext)
         {
-            var claims = new List<Claim>();
-
-            claims.Add(new Claim(ClaimTypes.NameIdentifier, userViewModel.Id.ToString()));
-            claims.Add(new Claim(ClaimTypes.Email, userViewModel.Email));
-            claims.Add(new Claim(ClaimTypes.Name, userViewModel.FullName));
-            claims.Add(new Claim(ClaimTypes.Role, userViewModel.Role.Key));
-            claims.Add(new Claim(ClaimTypes.PrimarySid, userViewModel.Id.ToString()));
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.NameIdentifier, userViewModel.Id.ToString()),
+                new Claim(ClaimTypes.Email, userViewModel.Email),
+                new Claim(ClaimTypes.Name, userViewModel.FullName),
+                new Claim(ClaimTypes.Role, userViewModel.Role.Key),
+                new Claim(ClaimTypes.PrimarySid, userViewModel.Id.ToString())
+            };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 

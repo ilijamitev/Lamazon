@@ -1,15 +1,7 @@
-﻿using System.Collections.Generic;
-
-namespace Lamazon.Domain.Enitities
+﻿namespace Lamazon.Domain.Enitities
 {
-    public class OrderLineItem
+    public class OrderLineItem : BaseEntity
     {
-        public OrderLineItem()
-        {
-            InvoiceLineItems = new HashSet<InvoiceLineItem>();
-        }
-
-        public int Id { get; set; }
         public int OrderId { get; set; }
         public int ProductId { get; set; }
         public string ProductName { get; set; }
@@ -20,7 +12,11 @@ namespace Lamazon.Domain.Enitities
 
         public virtual Order Order { get; set; }
         public virtual Product Product { get; set; }
-
         public virtual ICollection<InvoiceLineItem> InvoiceLineItems { get; set; }
+
+        public OrderLineItem()
+        {
+            InvoiceLineItems = new HashSet<InvoiceLineItem>();
+        }
     }
 }

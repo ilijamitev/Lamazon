@@ -1,8 +1,7 @@
 ﻿namespace Lamazon.Domain.Enitities
 {
-    public class InvoiceLineItem
+    public class InvoiceLineItem : BaseEntity
     {
-        public int Id { get; set; }
         public int InvoiceId { get; set; }
         public int OrderLineItemId { get; set; }
         public int ProductId { get; set; }

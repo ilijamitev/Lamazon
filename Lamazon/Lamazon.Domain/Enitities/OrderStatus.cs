@@ -2,16 +2,15 @@
 
 namespace Lamazon.Domain.Enitities
 {
-    public class OrderStatus
+    public class OrderStatus : BaseEntity
     {
+        public string Name { get; set; }
+
+        public virtual ICollection<Order> Orders { get; set; }
+
         public OrderStatus()
         {
             Orders = new HashSet<Order>();
         }
-
-        public int Id { get; set; }
-        public string Name { get; set; }
-
-        public virtual ICollection<Order> Orders { get; set; }
     }
 }

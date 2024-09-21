@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Lamazon.ViewModels.Models
+﻿namespace Lamazon.ViewModels.Models
 {
     public class PagedResultViewModel<T>
     {
