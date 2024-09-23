@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lamazon</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        @Html.PartialAsync("_Navbar").GetAwaiter().GetResult()
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    @Html.PartialAsync("_Footer").GetAwaiter().GetResult()
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap-notify/bootstrap-notify.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+    <script>
+        $('.btn-add-to-cart').click(function () {
+            var clickedBtn = $(this);
+
+            var dataToPost = {};
+            dataToPost.id = clickedBtn.attr('data-id');
+
+            $.ajax({
+                type: "POST",
+                url: "Products/AddToCart",
+                data: dataToPost,
+                success: function (result) {
+                    updateShoppingCartItems(result.itemsCount);
+                    clickedBtn.parent().find('.btn-remove-from-cart').show();
+                    clickedBtn.hide();
+                },
+                error: function (XMLHttpRequest, textStatus, erorrThrown) {
+                    alert("ERROR");
+                }
+            })
+        })
+
+        $('.btn-remove-from-cart').click(function () {
+            var clickedBtn = $(this);
+
+            var dataToPost = {};
+            dataToPost.id = clickedBtn.attr('data-id');
+
+            $.ajax({
+                type: "POST",
+                url: "Products/RemoveFromCart",
+                data: dataToPost,
+                success: function (result) {
+                    updateShoppingCartItems(result.itemsCount);
+
+                    clickedBtn.parent().find('.btn-add-to-cart').show();
+                    clickedBtn.hide();
+                },
+                error: function (XMLHttpRequest, textStatus, erorrThrown) {
+                    alert("ERROR");
+                }
+            })
+        })
+    </script>
+     <script>
+        @if (TempData["NotificationMessage"] != null)
+        {
+            @:$.notify('@TempData["NotificationMessage"]', { allow_dismiss: true, type: 'success' })
+        }
+    </script>
+</body>
+</html>
