@@ -1,6 +1,7 @@
 using Lamazon.Services.Extensions;
 using Lamazon.Web.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,7 +15,8 @@ builder.Services.InjectServices();
 builder.Services.InjectAutoMapper();
 builder.Services.InjectFluentValidators();
 builder.Services.InjectDbContext(connectionString);
-builder.Host.InjectSerilogConfiguration(connectionString);
+//Log.Logger = InjectionExtensions.InjectSerilogConfiguration(connectionString);
+//builder.Host.UseSerilog();
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(opt =>
 {

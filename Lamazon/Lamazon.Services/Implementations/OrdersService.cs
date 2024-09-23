@@ -47,7 +47,7 @@ namespace Lamazon.Services.Implementations
 
         public async Task CreateOrder(OrderViewModel orderViewModel)
         {
-            orderViewModel.OrderDate = DateTime.Today;
+            orderViewModel.OrderDate = DateTime.Now;
             orderViewModel.OrderStatus = ViewModels.Enums.OrderStatusEnum.Pending;
             var maxId = await _ordersRepository.GetMaxId();
             orderViewModel.OrderNumber = $"{++maxId}/{DateTime.Now.Year}";

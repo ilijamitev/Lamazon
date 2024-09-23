@@ -26,7 +26,7 @@ namespace Lamazon.Services.AutoMapperProfiles
             CreateMap<Order, Invoice>()
                 .ForMember(x => x.Id, opt => opt.Ignore())
                 .ForMember(x => x.OrderId, opt => opt.MapFrom(y => y.Id))
-                .ForMember(x => x.InvoiceDate, opt => opt.MapFrom(y => DateTime.Today))
+                .ForMember(x => x.InvoiceDate, opt => opt.MapFrom(y => DateTime.Now))
                 .ForMember(x => x.InvoiceStatusId, opt => opt.MapFrom(y => (int)InvoiceStatusEnum.PendingPayment))
                 .ForMember(x => x.InvoiceLineItems, opt => opt.MapFrom(y => y.OrderLineItems));
 

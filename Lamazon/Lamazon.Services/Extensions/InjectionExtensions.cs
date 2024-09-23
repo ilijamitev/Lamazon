@@ -62,7 +62,7 @@ namespace Lamazon.Services.Extensions
             services.AddValidatorsFromAssemblyContaining<ProductCategoryViewModelValidator>();
         }
 
-        public static IHostBuilder InjectSerilogConfiguration(this IHostBuilder builder, string connectionString)
+        public static ILogger InjectSerilogConfiguration(string connectionString)
         {
             var columnOptions = new ColumnOptions
             {
@@ -79,7 +79,7 @@ namespace Lamazon.Services.Extensions
                 }
             };
 
-            Log.Logger = new LoggerConfiguration()
+            return new LoggerConfiguration()
                      .Enrich.FromLogContext()
                      .Enrich.WithMachineName()
                      .Enrich.WithEnvironmentUserName()
@@ -100,10 +100,6 @@ namespace Lamazon.Services.Extensions
                          columnOptions: columnOptions
                      )
                      .CreateLogger();
-
-            builder.UseSerilog();
-
-            return builder;
         }
     }
 }
