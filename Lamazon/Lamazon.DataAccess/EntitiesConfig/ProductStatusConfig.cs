@@ -1,4 +1,4 @@
-﻿using Lamazon.Domain.Enitities;
+﻿using Lamazon.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Lamazon.Domain.Enitities
+namespace Lamazon.Domain.Entities
 {
     public class Invoice : BaseEntity
     {

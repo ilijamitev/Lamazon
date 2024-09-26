@@ -2,7 +2,7 @@
 using Lamazon.DataAccess.Extensions;
 using Lamazon.DataAccess.Interfaces;
 using Lamazon.Domain.Constants;
-using Lamazon.Domain.Enitities;
+using Lamazon.Domain.Entities;
 using Lamazon.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 using System;

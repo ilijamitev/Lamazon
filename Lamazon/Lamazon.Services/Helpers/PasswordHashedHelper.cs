@@ -1,4 +1,4 @@
-﻿using Lamazon.Domain.Enitities;
+﻿using Lamazon.Domain.Entities;
 using Microsoft.AspNetCore.Identity;
 
 namespace Lamazon.Services.Helpers

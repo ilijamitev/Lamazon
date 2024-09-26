@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using Lamazon.DataAccess.Interfaces;
-using Lamazon.Domain.Enitities;
+using Lamazon.Domain.Entities;
 using Lamazon.Domain.Enums;
 using Lamazon.Services;
 using Lamazon.Services.Interfaces;

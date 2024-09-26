@@ -1,6 +1,6 @@
 ﻿using Lamazon.DataAccess.DataContext;
 using Lamazon.DataAccess.Interfaces;
-using Lamazon.Domain.Enitities;
+using Lamazon.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

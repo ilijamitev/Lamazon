@@ -1,5 +1,5 @@
 ﻿using Lamazon.DataAccess.Extensions;
-using Lamazon.Domain.Enitities;
+using Lamazon.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 
@@ -19,7 +19,12 @@ namespace Lamazon.DataAccess.DataContext
             // Seed Data
             modelBuilder.SeedProductCategory()
                         .SeedProductCategoryStatus()
-                        .SeedProductStatus();
+                        .SeedProductStatus()
+                        .SeedRoles()
+                        .SeedUsers()
+                        .SeedProducts()
+                        .SeedOrderStatuses()
+                        .SeedInvoiceStatuses();
         }
 
         public DbSet<Invoice> Invoices { get; set; }

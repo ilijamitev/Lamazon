@@ -1,4 +1,4 @@
-﻿namespace Lamazon.Domain.Enitities
+﻿namespace Lamazon.Domain.Entities
 {
     public class ProductCategoryStatus : BaseEntity
     {
