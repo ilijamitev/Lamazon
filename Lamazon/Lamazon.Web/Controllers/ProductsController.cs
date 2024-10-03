@@ -34,10 +34,7 @@ namespace Lamazon.Web.Controllers
                 var product = _productsServices.GetProductById(id.Value);
                 return View(product);
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
 
         [HttpPost]

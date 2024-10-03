@@ -26,34 +26,32 @@ namespace Lamazon.Web.Controllers
         {
             var shoppingCart = GetShoopingCart();
 
-            if (shoppingCart.ShoppingCartItems.Any())
-            {
-                var orderLineItems = new List<OrderLineItemViewModel>();
-
-                foreach (var shoppingCartItem in shoppingCart.ShoppingCartItems)
-                {
-                    var product = _productsService.GetProductById(shoppingCartItem.Id);
-
-                    var orderLineItem = new OrderLineItemViewModel();
-                    orderLineItem.ProductId = product.Id;
-                    orderLineItem.ProductName = product.Name;
-                    orderLineItem.ProductPrice = product.DicountedPrice;
-                    orderLineItem.ProductDescription = product.Description;
-                    orderLineItem.ProductImage = product.ImageUrl;
-                    orderLineItem.Quantity = 1;
-                    orderLineItem.DiscountPercentage = product.DiscountPercentage;
-
-                    orderLineItem.TotalPrice = orderLineItem.Quantity * orderLineItem.ProductPrice;
-
-                    orderLineItems.Add(orderLineItem);
-                }
-
-                return View(orderLineItems);
-            }
-            else
+            if (!shoppingCart.ShoppingCartItems.Any())
             {
                 return RedirectToAction("Index", "Products");
             }
+
+            var orderLineItems = new List<OrderLineItemViewModel>();
+
+            foreach (var shoppingCartItem in shoppingCart.ShoppingCartItems)
+            {
+                var product = _productsService.GetProductById(shoppingCartItem.Id);
+
+                var orderLineItem = new OrderLineItemViewModel();
+                orderLineItem.ProductId = product.Id;
+                orderLineItem.ProductName = product.Name;
+                orderLineItem.ProductPrice = product.DicountedPrice;
+                orderLineItem.ProductDescription = product.Description;
+                orderLineItem.ProductImage = product.ImageUrl;
+                orderLineItem.Quantity = 1;
+                orderLineItem.DiscountPercentage = product.DiscountPercentage;
+
+                orderLineItem.TotalPrice = orderLineItem.Quantity * orderLineItem.ProductPrice;
+
+                orderLineItems.Add(orderLineItem);
+            }
+
+            return View(orderLineItems);
         }
 
         [HttpPost]

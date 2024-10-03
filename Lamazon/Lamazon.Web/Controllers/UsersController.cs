@@ -36,23 +36,19 @@ namespace Lamazon.Web.Controllers
                 ModelState.AddModelError("UserLoginError", "User not found");
                 return View(userCredentialsViewModel);
             }
-            else if (string.IsNullOrEmpty(userValidationResult.Email))
+            if (string.IsNullOrEmpty(userValidationResult.Email))
             {
                 ModelState.AddModelError("UserLoginError", "Invalid email or password");
                 return View(userCredentialsViewModel);
             }
-            else
+
+            await AuthHelper.SignInUser(userValidationResult, HttpContext);
+            if (string.IsNullOrEmpty(returnUrl))
             {
-                await AuthHelper.SignInUser(userValidationResult, HttpContext);
-                if (string.IsNullOrEmpty(returnUrl))
-                {
-                    return Redirect("/");
-                }
-                else
-                {
-                    return Redirect(returnUrl);
-                }
+                return Redirect("/");
             }
+
+            return Redirect(returnUrl);
         }
 
         public async Task<IActionResult> Logout()
@@ -74,7 +70,7 @@ namespace Lamazon.Web.Controllers
             {
                 return View(userViewModel);
             }
-            
+
             var registerResultUserViewModel = _usersService.RegisterUser(userViewModel);
             if (registerResultUserViewModel != null)
             {

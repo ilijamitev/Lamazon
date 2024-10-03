@@ -68,19 +68,14 @@ namespace Lamazon.Services.Implementations
             {
                 return null;
             }
-            else
-            {
-                var passwordVerificationResult = PasswordHashedHelper.VerifyHashedPassword(user, userCredentialsViewModel.Password);
 
-                if (passwordVerificationResult == Microsoft.AspNetCore.Identity.PasswordVerificationResult.Failed)
-                {
-                    return new UserViewModel();
-                }
-                else
-                {
-                    return _mapper.Map<UserViewModel>(user);
-                }
+            var passwordVerificationResult = PasswordHashedHelper.VerifyHashedPassword(user, userCredentialsViewModel.Password);
+            if (passwordVerificationResult == Microsoft.AspNetCore.Identity.PasswordVerificationResult.Failed)
+            {
+                return new UserViewModel();
             }
+
+            return _mapper.Map<UserViewModel>(user);
         }
 
         public PagedResultViewModel<UserViewModel> GetFilteredUsers(UsersDatatableRequestViewModel usersDatatableRequestViewModel)
