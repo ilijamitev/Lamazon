@@ -1,4 +1,4 @@
-﻿using Lamazon.Domain.Entities;
+﻿using Lamazon.Domain.Enitities;
 using Lamazon.ViewModels.Models;
 
 namespace Lamazon.Services.AutoMapperProfiles

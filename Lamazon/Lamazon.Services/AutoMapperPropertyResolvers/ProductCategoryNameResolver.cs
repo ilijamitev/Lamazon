@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using Lamazon.Domain.Entities;
+using Lamazon.Domain.Enitities;
 using Lamazon.Services.Interfaces;
 using Lamazon.ViewModels.Models;
 

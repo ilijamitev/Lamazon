@@ -45,10 +45,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 _productCategoriesService.CreateProductCategory(productCategoryViewModel);
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return View(productCategoryViewModel);
-            }
+            return View(productCategoryViewModel);
         }
 
 
@@ -59,10 +56,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 var productCategoryViewModel = _productCategoriesService.GetProductCategoryById(id.Value);
                 return View(productCategoryViewModel);
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
 
         [HttpPost]
@@ -74,10 +68,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 _productCategoriesService.UpdateProductCategory(productCategoryViewModel);
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return View(productCategoryViewModel);
-            }
+            return View(productCategoryViewModel);
         }
 
         public IActionResult Delete(int? id)
@@ -87,10 +78,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 var productCategoryViewModel = _productCategoriesService.GetProductCategoryById(id.Value);
                 return View(productCategoryViewModel);
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
 
         [HttpPost, ActionName("Delete")]
@@ -102,10 +90,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 _productCategoriesService.DeleteProductCategoryById(id.Value);
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
     }
 }

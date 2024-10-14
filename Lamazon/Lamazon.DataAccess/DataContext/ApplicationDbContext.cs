@@ -1,5 +1,5 @@
 ﻿using Lamazon.DataAccess.Extensions;
-using Lamazon.Domain.Entities;
+using Lamazon.Domain.Enitities;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 

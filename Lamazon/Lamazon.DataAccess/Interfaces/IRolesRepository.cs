@@ -1,4 +1,4 @@
-﻿using Lamazon.Domain.Entities;
+﻿using Lamazon.Domain.Enitities;
 using System.Collections.Generic;
 
 namespace Lamazon.DataAccess.Interfaces

@@ -1,7 +1,7 @@
 ﻿using Lamazon.DataAccess.DataContext;
 using Lamazon.DataAccess.Interfaces;
 using Lamazon.Domain.Constants;
-using Lamazon.Domain.Entities;
+using Lamazon.Domain.Enitities;
 using Lamazon.Domain.Enums;
 using System.Collections.Generic;
 using System.Linq;

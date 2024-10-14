@@ -1,6 +1,6 @@
-﻿namespace Lamazon.Domain.Entities
+﻿namespace Lamazon.Domain.Enitities
 {
-    public class Role 
+    public class Role
     {
         public string Key { get; set; }
         public string Name { get; set; }

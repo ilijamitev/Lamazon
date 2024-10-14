@@ -1,4 +1,4 @@
-﻿using Lamazon.Domain.Entities;
+﻿using Lamazon.Domain.Enitities;
 using Lamazon.Domain.Models;
 using System.Collections.Generic;
 

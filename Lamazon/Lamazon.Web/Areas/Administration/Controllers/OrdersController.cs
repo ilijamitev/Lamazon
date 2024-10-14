@@ -3,7 +3,6 @@ using Lamazon.Services.Interfaces;
 using Lamazon.ViewModels.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace Lamazon.Web.Areas.Administration.Controllers
 {
@@ -12,10 +11,10 @@ namespace Lamazon.Web.Areas.Administration.Controllers
     public class OrdersController : ControllerBase
     {
         private readonly IOrdersService _ordersService;
+
         public OrdersController(IOrdersService ordersService)
         {
             _ordersService = ordersService;
-
             PageName = "Orders";
         }
 
@@ -38,10 +37,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 var orderViewModel = await _ordersService.GetOrderById(id.Value);
                 return View(orderViewModel);
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
 
         [HttpPost]
@@ -54,10 +50,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 AddNotificationMessage("Order was rejected");
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
 
         [HttpPost]
@@ -70,10 +63,7 @@ namespace Lamazon.Web.Areas.Administration.Controllers
                 AddNotificationMessage("Order was accepted");
                 return RedirectToAction(nameof(Index));
             }
-            else
-            {
-                return new EmptyResult();
-            }
+            return new EmptyResult();
         }
     }
 }

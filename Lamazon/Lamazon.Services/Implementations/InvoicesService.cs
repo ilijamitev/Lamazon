@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Lamazon.DataAccess.Interfaces;
-using Lamazon.Domain.Entities;
 using Lamazon.Domain.Enums;
 using Lamazon.Services;
 using Lamazon.Services.Interfaces;
@@ -9,6 +8,7 @@ using Lamazon.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Lamazon.Domain.Enitities;
 
 namespace Lamazon.Services.Implementations
 {

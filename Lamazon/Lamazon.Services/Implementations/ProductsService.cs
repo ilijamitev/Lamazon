@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
 using Lamazon.DataAccess.Interfaces;
-using Lamazon.Domain.Entities;
 using Lamazon.Services;
 using Lamazon.Services.Interfaces;
 using Lamazon.ViewModels.Models;
 using Lamazon.DataAccess;
 using System;
 using System.Collections.Generic;
+using Lamazon.Domain.Enitities;
 
 namespace Lamazon.Services.Implementations
 {
